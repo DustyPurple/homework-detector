@@ -34,6 +34,14 @@
 
 #define RFID_START  0x0A  // RFID Reader Start and Stop bytes
 #define RFID_STOP   0x0D
+
+const int button1pin = 7;     // the number of the pushbutton pin
+const int button2pin = 8;     // the number of the pushbutton pin
+const int button3pin = 9;     // the number of the pushbutton pin
+const int button4pin = 10;     // the number of the pushbutton pin
+const int button5pin = 11;     // the number of the pushbutton pin
+
+int buttonState = 1;         // variable for reading the pushbutton status
 int hamstersLedPin= 6;//the number of the led pin
 int grantsLedPin = 4;//the number of the led pin
 int ritasLedPin = 3;//the number of the led pin
@@ -77,7 +85,12 @@ void setup()  // Set up code called once on start-up
   pinMode(norasLedPin, OUTPUT);// allows a signal to be sent to noras led
   pinMode(dustysLedPin, OUTPUT);// allows a signal to be sent to dustys led
   pinMode(hamstersLedPin, OUTPUT);// allows a signal to be sent to hamsters led
-
+  pinMode(button1pin, INPUT_PULLUP);
+  pinMode(button2pin, INPUT_PULLUP);
+  pinMode(button3pin, INPUT_PULLUP);
+  pinMode(button4pin, INPUT_PULLUP);
+  pinMode(button5pin, INPUT_PULLUP);
+    
   digitalWrite(enablePin, HIGH);  // disable RFID Reader
   
   // setup Arduino Serial Monitor
@@ -129,10 +142,16 @@ void loop()  // Main code, to run repeatedly
         rfidData[offset] = 0; // Null terminate the string of bytes we just received
         break;                // Break out of the loop
       }
-          
       offset++;  // Increment offset into array
       if (offset >= BUFSIZE) offset = 0; // If the incoming data string is longer than our buffer, wrap around to avoid going out-of-bounds
     }
+    
+    buttonState = digitalRead(button1pin);
+    if (buttonState == LOW) 
+    {
+      digitalWrite(ritasLedPin, LOW);
+      ritasTimerId = -1;
+    } 
   }
 
   String rfidTagRead(rfidData); //making astring out of a charactor array
