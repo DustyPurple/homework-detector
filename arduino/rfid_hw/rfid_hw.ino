@@ -146,12 +146,39 @@ void loop()  // Main code, to run repeatedly
       if (offset >= BUFSIZE) offset = 0; // If the incoming data string is longer than our buffer, wrap around to avoid going out-of-bounds
     }
     
-    buttonState = digitalRead(button1pin);
+    buttonState = digitalRead(button4pin);
     if (buttonState == LOW) 
     {
       digitalWrite(ritasLedPin, LOW);
       ritasTimerId = -1;
-    } 
+    }
+    
+    buttonState = digitalRead(button3pin);
+    if (buttonState == LOW) 
+    {
+      digitalWrite(grantsLedPin, LOW);
+      grantsTimerId = -1;
+    }
+
+    buttonState = digitalRead(button5pin);
+    if (buttonState == LOW) 
+    {
+      digitalWrite(norasLedPin, LOW);
+      norasTimerId = -1;
+    }
+    buttonState = digitalRead(button2pin);
+    if (buttonState == LOW) 
+    {
+      digitalWrite(dustysLedPin, LOW);
+      dustysTimerId = -1;
+    }
+    buttonState = digitalRead(button1pin);
+    if (buttonState == LOW) 
+    {
+      digitalWrite(hamstersLedPin, LOW);
+      hamstersTimerId = -1;
+    }
+     
   }
 
   String rfidTagRead(rfidData); //making astring out of a charactor array
