@@ -149,34 +149,29 @@ void loop()  // Main code, to run repeatedly
     buttonState = digitalRead(button4pin);
     if (buttonState == LOW) 
     {
-      digitalWrite(ritasLedPin, LOW);
-      ritasTimerId = -1;
+     doAfterRitasLedPin(); 
     }
     
     buttonState = digitalRead(button3pin);
     if (buttonState == LOW) 
     {
-      digitalWrite(grantsLedPin, LOW);
-      grantsTimerId = -1;
+     doAfterGrantsLedPin() 
     }
 
     buttonState = digitalRead(button5pin);
     if (buttonState == LOW) 
     {
-      digitalWrite(norasLedPin, LOW);
-      norasTimerId = -1;
+     doAfterNorasLedPin() 
     }
     buttonState = digitalRead(button2pin);
     if (buttonState == LOW) 
     {
-      digitalWrite(dustysLedPin, LOW);
-      dustysTimerId = -1;
+     doAfterDustysLedPin()
     }
     buttonState = digitalRead(button1pin);
     if (buttonState == LOW) 
     {
-      digitalWrite(hamstersLedPin, LOW);
-      hamstersTimerId = -1;
+     doAfterHamstersLedPin() 
     }
      
   }
