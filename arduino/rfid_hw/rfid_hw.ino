@@ -155,23 +155,23 @@ void loop()  // Main code, to run repeatedly
     buttonState = digitalRead(button3pin);
     if (buttonState == LOW) 
     {
-     doAfterGrantsLedPin() 
+     doAfterGrantsLedPin(); 
     }
 
     buttonState = digitalRead(button5pin);
     if (buttonState == LOW) 
     {
-     doAfterNorasLedPin() 
+     doAfterNorasLedPin(); 
     }
     buttonState = digitalRead(button2pin);
     if (buttonState == LOW) 
     {
-     doAfterDustysLedPin()
+     doAfterDustysLedPin();
     }
     buttonState = digitalRead(button1pin);
     if (buttonState == LOW) 
     {
-     doAfterHamstersLedPin() 
+     doAfterHamstersLedPin();
     }
      
   }
