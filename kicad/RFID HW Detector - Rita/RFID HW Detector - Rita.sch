@@ -28,7 +28,7 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:arduino_shieldsNCL
+LIBS:RFID HW Detector - Rita-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -118,7 +118,7 @@ F 1 "LED" H 8700 4400 50  0000 C CNN
 F 2 "LEDs:LED-5MM" H 8700 4500 50  0001 C CNN
 F 3 "" H 8700 4500 50  0000 C CNN
 	1    8700 4500
-	1    0    0    -1  
+	-1   0    0    1   
 $EndComp
 $Comp
 L LED D3
@@ -129,7 +129,7 @@ F 1 "LED" H 8700 4700 50  0000 C CNN
 F 2 "LEDs:LED-5MM" H 8700 4800 50  0001 C CNN
 F 3 "" H 8700 4800 50  0000 C CNN
 	1    8700 4800
-	1    0    0    -1  
+	-1   0    0    1   
 $EndComp
 $Comp
 L LED D4
@@ -140,7 +140,7 @@ F 1 "LED" H 8700 5000 50  0000 C CNN
 F 2 "LEDs:LED-5MM" H 8700 5100 50  0001 C CNN
 F 3 "" H 8700 5100 50  0000 C CNN
 	1    8700 5100
-	1    0    0    -1  
+	-1   0    0    1   
 $EndComp
 $Comp
 L LED D5
@@ -151,7 +151,7 @@ F 1 "LED" H 8700 5300 50  0000 C CNN
 F 2 "LEDs:LED-5MM" H 8700 5400 50  0001 C CNN
 F 3 "" H 8700 5400 50  0000 C CNN
 	1    8700 5400
-	1    0    0    -1  
+	-1   0    0    1   
 $EndComp
 $Comp
 L LED D1
@@ -162,7 +162,7 @@ F 1 "LED" H 8700 4100 50  0000 C CNN
 F 2 "LEDs:LED-5MM" H 8700 4200 50  0001 C CNN
 F 3 "" H 8700 4200 50  0000 C CNN
 	1    8700 4200
-	1    0    0    -1  
+	-1   0    0    1   
 $EndComp
 $Comp
 L CONN_01X04 P1
@@ -237,16 +237,6 @@ Wire Wire Line
 Wire Wire Line
 	6500 5400 7850 5400
 Wire Wire Line
-	8150 5400 8500 5400
-Wire Wire Line
-	8150 5100 8500 5100
-Wire Wire Line
-	8500 4800 8150 4800
-Wire Wire Line
-	8150 4500 8500 4500
-Wire Wire Line
-	8150 4200 8500 4200
-Wire Wire Line
 	7850 5100 6400 5100
 Wire Wire Line
 	6400 5100 6400 5050
@@ -268,13 +258,6 @@ Wire Wire Line
 	7700 4750 7700 4200
 Wire Wire Line
 	7700 4200 7850 4200
-Wire Wire Line
-	8900 4200 8900 6000
-Connection ~ 8900 4200
-Connection ~ 8900 4500
-Connection ~ 8900 4800
-Connection ~ 8900 5100
-Connection ~ 8900 5400
 Wire Wire Line
 	4450 4550 3650 4550
 Wire Wire Line
@@ -324,34 +307,40 @@ Wire Wire Line
 Wire Wire Line
 	7100 3950 6350 3950
 Wire Wire Line
-	8850 1100 8850 3650
+	8850 1750 8850 3650
 Connection ~ 8850 2800
 Connection ~ 8850 3250
 Connection ~ 8850 2400
 Connection ~ 8850 3650
-Wire Wire Line
-	8850 3650 9050 3650
-Wire Wire Line
-	9050 3650 9050 6200
-Wire Wire Line
-	9050 6200 3550 6200
-Wire Wire Line
-	3550 6200 3550 4350
-Wire Wire Line
-	3550 4350 4450 4350
 Connection ~ 8850 2050
 Wire Wire Line
-	8850 1100 7800 1100
+	7800 1300 6950 1300
 Wire Wire Line
-	7800 1100 7800 1300
+	6950 1300 6950 3450
 Wire Wire Line
-	8900 4200 9150 4200
+	6950 3450 4350 3450
 Wire Wire Line
-	9150 4200 9150 1000
+	4350 3450 4350 4350
 Wire Wire Line
-	9150 1000 6900 1000
+	4350 4350 4450 4350
 Wire Wire Line
-	6900 1000 6900 1600
+	8850 3650 8900 3650
 Wire Wire Line
-	6900 1600 7800 1600
+	7800 1600 7350 1600
+Wire Wire Line
+	7350 1600 7350 1750
+Wire Wire Line
+	7350 1750 8850 1750
+Wire Wire Line
+	8900 3650 8900 6000
+Wire Wire Line
+	8500 5400 8150 5400
+Wire Wire Line
+	8150 5100 8500 5100
+Wire Wire Line
+	8500 4800 8150 4800
+Wire Wire Line
+	8150 4500 8500 4500
+Wire Wire Line
+	8500 4200 8150 4200
 $EndSCHEMATC

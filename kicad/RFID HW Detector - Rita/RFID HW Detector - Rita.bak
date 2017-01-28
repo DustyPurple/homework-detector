@@ -1,1 +1,351 @@
 EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:RFID HW Detector - Rita-cache
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L ARDUINO_SHIELD SHIELD1
+U 1 1 586EE053
+P 5400 4550
+F 0 "SHIELD1" H 5050 5500 60  0000 C CNN
+F 1 "ARDUINO_SHIELD" H 5450 3600 60  0000 C CNN
+F 2 "arduino:ARDUINO SHIELD" H 5400 4550 60  0001 C CNN
+F 3 "" H 5400 4550 60  0000 C CNN
+	1    5400 4550
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R4
+U 1 1 586EE17D
+P 8000 5100
+F 0 "R4" V 8080 5100 50  0000 C CNN
+F 1 "R" V 8000 5100 50  0000 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 7930 5100 50  0001 C CNN
+F 3 "" H 8000 5100 50  0000 C CNN
+	1    8000 5100
+	0    1    1    0   
+$EndComp
+$Comp
+L R R5
+U 1 1 586EE2DF
+P 8000 5400
+F 0 "R5" V 8100 5400 50  0000 C CNN
+F 1 "R" V 8000 5400 50  0000 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 7930 5400 50  0001 C CNN
+F 3 "" H 8000 5400 50  0000 C CNN
+	1    8000 5400
+	0    1    1    0   
+$EndComp
+$Comp
+L R R3
+U 1 1 586EE478
+P 8000 4800
+F 0 "R3" V 8080 4800 50  0000 C CNN
+F 1 "R" V 8000 4800 50  0000 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 7930 4800 50  0001 C CNN
+F 3 "" H 8000 4800 50  0000 C CNN
+	1    8000 4800
+	0    1    1    0   
+$EndComp
+$Comp
+L R R2
+U 1 1 586EE494
+P 8000 4500
+F 0 "R2" V 8080 4500 50  0000 C CNN
+F 1 "R" V 8000 4500 50  0000 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 7930 4500 50  0001 C CNN
+F 3 "" H 8000 4500 50  0000 C CNN
+	1    8000 4500
+	0    1    1    0   
+$EndComp
+$Comp
+L R R1
+U 1 1 586EE4B9
+P 8000 4200
+F 0 "R1" V 8080 4200 50  0000 C CNN
+F 1 "R" V 8000 4200 50  0000 C CNN
+F 2 "Resistors_ThroughHole:Resistor_Horizontal_RM10mm" V 7930 4200 50  0001 C CNN
+F 3 "" H 8000 4200 50  0000 C CNN
+	1    8000 4200
+	0    1    1    0   
+$EndComp
+$Comp
+L LED D2
+U 1 1 586EE4DB
+P 8700 4500
+F 0 "D2" H 8700 4600 50  0000 C CNN
+F 1 "LED" H 8700 4400 50  0000 C CNN
+F 2 "LEDs:LED-5MM" H 8700 4500 50  0001 C CNN
+F 3 "" H 8700 4500 50  0000 C CNN
+	1    8700 4500
+	-1   0    0    1   
+$EndComp
+$Comp
+L LED D3
+U 1 1 586EE51D
+P 8700 4800
+F 0 "D3" H 8700 4900 50  0000 C CNN
+F 1 "LED" H 8700 4700 50  0000 C CNN
+F 2 "LEDs:LED-5MM" H 8700 4800 50  0001 C CNN
+F 3 "" H 8700 4800 50  0000 C CNN
+	1    8700 4800
+	-1   0    0    1   
+$EndComp
+$Comp
+L LED D4
+U 1 1 586EE601
+P 8700 5100
+F 0 "D4" H 8700 5200 50  0000 C CNN
+F 1 "LED" H 8700 5000 50  0000 C CNN
+F 2 "LEDs:LED-5MM" H 8700 5100 50  0001 C CNN
+F 3 "" H 8700 5100 50  0000 C CNN
+	1    8700 5100
+	-1   0    0    1   
+$EndComp
+$Comp
+L LED D5
+U 1 1 586EE62F
+P 8700 5400
+F 0 "D5" H 8700 5500 50  0000 C CNN
+F 1 "LED" H 8700 5300 50  0000 C CNN
+F 2 "LEDs:LED-5MM" H 8700 5400 50  0001 C CNN
+F 3 "" H 8700 5400 50  0000 C CNN
+	1    8700 5400
+	-1   0    0    1   
+$EndComp
+$Comp
+L LED D1
+U 1 1 586EE6BA
+P 8700 4200
+F 0 "D1" H 8700 4300 50  0000 C CNN
+F 1 "LED" H 8700 4100 50  0000 C CNN
+F 2 "LEDs:LED-5MM" H 8700 4200 50  0001 C CNN
+F 3 "" H 8700 4200 50  0000 C CNN
+	1    8700 4200
+	-1   0    0    1   
+$EndComp
+$Comp
+L CONN_01X04 P1
+U 1 1 586EE8F7
+P 8000 1450
+F 0 "P1" H 8000 1700 50  0000 C CNN
+F 1 "CONN_01X04" V 8100 1450 50  0000 C CNN
+F 2 "Socket_Strips:Socket_Strip_Straight_1x04" H 8000 1450 50  0001 C CNN
+F 3 "" H 8000 1450 50  0000 C CNN
+	1    8000 1450
+	1    0    0    -1  
+$EndComp
+$Comp
+L SPST SW5
+U 1 1 586EEBE6
+P 8350 3650
+F 0 "SW5" H 8350 3750 50  0000 C CNN
+F 1 "SPST" H 8350 3550 50  0000 C CNN
+F 2 "Buttons_Switches_SMD:SW_SPST_B3S-1000" H 8350 3650 50  0001 C CNN
+F 3 "" H 8350 3650 50  0000 C CNN
+	1    8350 3650
+	1    0    0    -1  
+$EndComp
+$Comp
+L SPST SW4
+U 1 1 586EEC9B
+P 8350 3250
+F 0 "SW4" H 8350 3350 50  0000 C CNN
+F 1 "SPST" H 8350 3150 50  0000 C CNN
+F 2 "Buttons_Switches_SMD:SW_SPST_B3S-1000" H 8350 3250 50  0001 C CNN
+F 3 "" H 8350 3250 50  0000 C CNN
+	1    8350 3250
+	1    0    0    -1  
+$EndComp
+$Comp
+L SPST SW3
+U 1 1 586EECDE
+P 8350 2800
+F 0 "SW3" H 8350 2900 50  0000 C CNN
+F 1 "SPST" H 8350 2700 50  0000 C CNN
+F 2 "Buttons_Switches_SMD:SW_SPST_B3S-1000" H 8350 2800 50  0001 C CNN
+F 3 "" H 8350 2800 50  0000 C CNN
+	1    8350 2800
+	1    0    0    -1  
+$EndComp
+$Comp
+L SPST SW2
+U 1 1 586EED29
+P 8350 2400
+F 0 "SW2" H 8350 2500 50  0000 C CNN
+F 1 "SPST" H 8350 2300 50  0000 C CNN
+F 2 "Buttons_Switches_SMD:SW_SPST_B3S-1000" H 8350 2400 50  0001 C CNN
+F 3 "" H 8350 2400 50  0000 C CNN
+	1    8350 2400
+	1    0    0    -1  
+$EndComp
+$Comp
+L SPST SW1
+U 1 1 586EED79
+P 8350 2050
+F 0 "SW1" H 8350 2150 50  0000 C CNN
+F 1 "SPST" H 8350 1950 50  0000 C CNN
+F 2 "Buttons_Switches_SMD:SW_SPST_B3S-1000" H 8350 2050 50  0001 C CNN
+F 3 "" H 8350 2050 50  0000 C CNN
+	1    8350 2050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6350 5150 6500 5150
+Wire Wire Line
+	6500 5150 6500 5400
+Wire Wire Line
+	6500 5400 7850 5400
+Wire Wire Line
+	8150 5400 8500 5400
+Wire Wire Line
+	8150 5100 8500 5100
+Wire Wire Line
+	8500 4800 8150 4800
+Wire Wire Line
+	8150 4500 8500 4500
+Wire Wire Line
+	8150 4200 8500 4200
+Wire Wire Line
+	7850 5100 6400 5100
+Wire Wire Line
+	6400 5100 6400 5050
+Wire Wire Line
+	6400 5050 6350 5050
+Wire Wire Line
+	6350 4950 7850 4950
+Wire Wire Line
+	7850 4950 7850 4800
+Wire Wire Line
+	7850 4500 7750 4500
+Wire Wire Line
+	7750 4500 7750 4850
+Wire Wire Line
+	7750 4850 6350 4850
+Wire Wire Line
+	6350 4750 7700 4750
+Wire Wire Line
+	7700 4750 7700 4200
+Wire Wire Line
+	7700 4200 7850 4200
+Wire Wire Line
+	8900 3650 8900 6000
+Connection ~ 8900 4200
+Connection ~ 8900 4500
+Connection ~ 8900 4800
+Connection ~ 8900 5100
+Connection ~ 8900 5400
+Wire Wire Line
+	4450 4550 3650 4550
+Wire Wire Line
+	3650 4550 3650 6000
+Wire Wire Line
+	3650 6000 8900 6000
+Wire Wire Line
+	6350 4650 7650 4650
+Wire Wire Line
+	7650 4650 7650 3650
+Wire Wire Line
+	7650 3650 7850 3650
+Wire Wire Line
+	7850 3250 7550 3250
+Wire Wire Line
+	7550 3250 7550 4450
+Wire Wire Line
+	7550 4450 6350 4450
+Wire Wire Line
+	7850 2800 7500 2800
+Wire Wire Line
+	7500 2800 7500 4350
+Wire Wire Line
+	7500 4350 6350 4350
+Wire Wire Line
+	6350 4250 7400 4250
+Wire Wire Line
+	7400 4250 7400 2400
+Wire Wire Line
+	7400 2400 7850 2400
+Wire Wire Line
+	7850 2050 7300 2050
+Wire Wire Line
+	7300 2050 7300 4150
+Wire Wire Line
+	7300 4150 6350 4150
+Wire Wire Line
+	6350 4050 7200 4050
+Wire Wire Line
+	7200 4050 7200 1500
+Wire Wire Line
+	7200 1500 7800 1500
+Wire Wire Line
+	7800 1400 7100 1400
+Wire Wire Line
+	7100 1400 7100 3950
+Wire Wire Line
+	7100 3950 6350 3950
+Wire Wire Line
+	8850 1750 8850 3650
+Connection ~ 8850 2800
+Connection ~ 8850 3250
+Connection ~ 8850 2400
+Connection ~ 8850 3650
+Connection ~ 8850 2050
+Wire Wire Line
+	7800 1300 6950 1300
+Wire Wire Line
+	6950 1300 6950 3450
+Wire Wire Line
+	6950 3450 4350 3450
+Wire Wire Line
+	4350 3450 4350 4350
+Wire Wire Line
+	4350 4350 4450 4350
+Wire Wire Line
+	8850 3650 8900 3650
+Wire Wire Line
+	7800 1600 7350 1600
+Wire Wire Line
+	7350 1600 7350 1750
+Wire Wire Line
+	7350 1750 8850 1750
+$EndSCHEMATC
