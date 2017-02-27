@@ -1,27 +1,34 @@
 #include <Event.h>
 #include <Timer.h>
 
-/*
-  
-  Parallax RFID Reader: Basic Demonstration       
-                                                         
-  Author: Joe Grand [www.grandideastudio.com]             
-  Contact: support@parallax.com                            
-  
-  Program Description:
-  
-  This program provides a simple demonstration of the Parallax RFID Card
-  Reader (#28140). If a valid RFID tag is placed in front of the reader,
-  its unique ID is displayed in the Arduino Serial Monitor. 
-  
-  Please refer to the product manual for full details of system functionality 
-  and capabilities.
+//#define GROVE
+#define PARALLAX
 
-  Revisions:
-  
-  1.0 (April 30, 2014): Initial release
-  
-*/
+//grove rfid reader
+#ifdef GROVE
+   #define RFID_START  0x02  // RFID Reader Start and Stop bytes
+   #define RFID_STOP   0x03
+   #define BUFSIZE    13
+   const String ritasTag = "840034490FF6";
+   const String grantsTag = "35021DEDA96E";
+   const String norasTag = "38003F8FA62E";
+   const String dustysTag = "3501D5BFB0EE";
+   const String hamstersTag = "38005BC5BC1A"; 
+   const int baudrate = 9600;
+#endif
+
+//parallax rfid reader
+#ifdef PARALLAX
+   #define RFID_START  0x0A  // RFID Reader Start and Stop bytes
+   #define RFID_STOP   0x0D
+   #define BUFSIZE    11
+   const String ritasTag = "840034490F";
+   const String grantsTag = "35021DEDA9";
+   const String norasTag = "38003F8FA6";
+   const String dustysTag = "3501D5BFB0";
+   const String hamstersTag = "38005BC5BC"; 
+   const int baudrate = 2400;  
+#endif
 
 // include the SoftwareSerial library so we can use it to talk to the RFID Reader
 #include <SoftwareSerial.h>
@@ -30,10 +37,6 @@
 #define rxPin      12  // Serial input (connects to the RFID's SOUT pin)
 #define txPin      0  // Serial output (unused)
 
-#define BUFSIZE    11  // Size of receive buffer (in bytes) (10-byte unique ID + null character)
-
-#define RFID_START  0x0A  // RFID Reader Start and Stop bytes
-#define RFID_STOP   0x0D
 
 const int button1pin = 7;     // the number of the pushbutton pin
 const int button2pin = 8;     // the number of the pushbutton pin
@@ -48,12 +51,6 @@ int ritasLedPin = 3;//the number of the led pin
 int norasLedPin = 2;//the number of the Led Pin
 int dustysLedPin = 5;//the number of the led pin
 
-//string for tags
-const String ritasTag = "840034490F";
-const String grantsTag = "35021DEDA9";
-const String norasTag = "38003F8FA6";
-const String dustysTag = "3501D5BFB0";
-const String hamstersTag = "38005BC5BC";
 
 long hour = (long) 1000 * 60 * 60; //1000 milli x 60 = 1 minute;  1 minute x 60 = 1 hour; 3,600,000 millis
 
@@ -100,7 +97,7 @@ void setup()  // Set up code called once on start-up
   Serial.println(ritasTimer);
   
   // set the baud rate for the SoftwareSerial port
-  rfidSerial.begin(2400);
+  rfidSerial.begin(baudrate);
 
   Serial.flush();   // wait for all bytes to be transmitted to the Serial Monitor
 }
@@ -132,7 +129,14 @@ void loop()  // Main code, to run repeatedly
     ledTimer.update();  //update the timer while waiting for an rfid tag to be read 
     if (rfidSerial.available() > 0) // If there are any bytes available to read, then the RFID Reader has probably seen a valid tag
     {
-      rfidData[offset] = rfidSerial.read();  // Get the byte and store it in our buffer
+      char byteRead = rfidSerial.read();// Get the byte
+      rfidData[offset] = byteRead;  // stores it in our buffer
+      Serial.print("--");
+      Serial.print(byteRead);
+      Serial.print("--");
+      Serial.print(lowByte(byteRead),HEX);
+      Serial.println("--");
+
       if (rfidData[offset] == RFID_START)    // If we receive the start byte from the RFID Reader, then get ready to receive the tag's unique ID
       {
         offset = -1;     // Clear offset (will be incremented back to 0 at the end of the loop)
@@ -146,8 +150,8 @@ void loop()  // Main code, to run repeatedly
       if (offset >= BUFSIZE) offset = 0; // If the incoming data string is longer than our buffer, wrap around to avoid going out-of-bounds
     }
     
-    buttonState = digitalRead(button4pin);
-    if (buttonState == LOW) 
+    buttonState = digitalRead(button4pin);//reads the state of the button
+    if (buttonState == LOW) // is the button being pressed?
     {
      doAfterRitasLedPin(); 
     }
