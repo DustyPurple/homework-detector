@@ -3,7 +3,7 @@
 
 //#define GROVE
 #define PARALLAX
-
+//#define DEBUG
 //grove rfid reader
 #ifdef GROVE
    #define RFID_START  0x02  // RFID Reader Start and Stop bytes
@@ -89,17 +89,25 @@ void setup()  // Set up code called once on start-up
   pinMode(button5pin, INPUT_PULLUP);
     
   digitalWrite(enablePin, HIGH);  // disable RFID Reader
-  
+
+
+  #ifdef DEBUG
   // setup Arduino Serial Monitor
   Serial.begin(9600);
   while (!Serial);   // wait until ready
   Serial.println("\n\nParallax RFID Card Reader");
   Serial.println(ritasTimer);
+  #endif
+
   
   // set the baud rate for the SoftwareSerial port
   rfidSerial.begin(baudrate);
 
-  Serial.flush();   // wait for all bytes to be transmitted to the Serial Monitor
+
+  #ifdef DEBUG
+  Serial.flush();// wait for all bytes to be transmitted to the Serial Monitor
+  #endif
+  
 }
 
 void loop()  // Main code, to run repeatedly
@@ -114,9 +122,9 @@ void loop()  // Main code, to run repeatedly
     
     We'll receive the ID and convert it to a null-terminated string with no start or stop byte. 
   */   
-  
+  #ifdef PARALLAX
   digitalWrite(enablePin, LOW);   // enable the RFID Reader
-  
+  #endif
   // Wait for a response from the RFID Reader
   // See Arduino readBytesUntil() as an alternative solution to read data from the reader
   char rfidData[BUFSIZE];  // Buffer for incoming data
@@ -131,12 +139,15 @@ void loop()  // Main code, to run repeatedly
     {
       char byteRead = rfidSerial.read();// Get the byte
       rfidData[offset] = byteRead;  // stores it in our buffer
+
+      #ifdef DEBUG
       Serial.print("--");
       Serial.print(byteRead);
       Serial.print("--");
       Serial.print(lowByte(byteRead),HEX);
       Serial.println("--");
-
+      #endif
+      
       if (rfidData[offset] == RFID_START)    // If we receive the start byte from the RFID Reader, then get ready to receive the tag's unique ID
       {
         offset = -1;     // Clear offset (will be incremented back to 0 at the end of the loop)
@@ -211,9 +222,11 @@ void loop()  // Main code, to run repeatedly
     hamstersTimerId = ledTimer.after(hamstersTimer, doAfterHamstersLedPin);
      
   }
+
+  #ifdef DEBUG
   Serial.println(rfidData);       // The rfidData string should now contain the tag's unique ID with a null termination, so display it on the Serial Monitor
   Serial.flush();                 // Wait for all bytes to be transmitted to the Serial Monitor
-
+  #endif
 
 }
 
